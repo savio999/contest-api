@@ -33,19 +33,28 @@ Follow these steps to test the dummy API:
 1. **Clone the project**  
     Copy the repository into your XAMPP `htdocs` folder
 
-2. **Start Apache**
-    Make sure Apache is running in XAMPP.
+2. **Start Apache and MYSQL**
+    Make sure Apache and MYSQL is running in XAMPP.
 
-3. **Open Postman**
-    Enter the following URL to test the dummy endpoint:
+3. **Configure Environment**
+    Enter host,username and password in .env file in project root
 
-    http://localhost/contest-api/test
+4. **Setup DB and Tables**
+    - The `/setup-db` endpoint is intended only for initial DB setup. 
+        ```http
+        POST /setup-db
+        ```
+        Postman
+        ```http
+        http://localhost/contest-api/setup-db (POST)        
+        ```
+        Successful Response will be:
+        ```json
+        {
+           "status": "success",
+           "message": "Database and tables created successfully"
+        }
+
+        ```
 
 
-    Expected Response
-    You should get the following JSON response:
-
-    {
-    "status": "success",
-    "message": "Test endpoint reached successfully."
-    }
