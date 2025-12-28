@@ -1,7 +1,11 @@
 <?php
+
+require_once __DIR__ . '/../app/Core/Autoload.php';
 $routes = require __DIR__ . '/../app/routes.php';
-require_once __DIR__ . '/../app/Controllers/BaseController.php';
-require_once __DIR__ . '/../app/Controllers/TestController.php';
+
+use App\Core\Env;
+
+Env::load(__DIR__ . '/../.env');
 
 $uri = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 if (isset($routes[$uri])) {
